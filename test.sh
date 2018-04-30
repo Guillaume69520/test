@@ -183,10 +183,15 @@ nouvelle_partie() {
         local x=${xpt[0]} y=${ypt[0]}
         (( ((x>=$((Lines-1)))) || ((x<=1)) || ((y>=Cols)) || ((y<=1)) )) && return 1; #collsion mur
         
-
+	if (($sumscore==9)); then
+	
+	(( x==xrand && y==yrand )) && ((liveflag=1)) && ((sumnode=$(($sumnode/2)))) && ((sumscore+=foodscore));   #voir cette ligne !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	
+	
+	else
         (( x==xrand && y==yrand )) && ((liveflag=1)) && ((sumnode+=foodscore)) && ((sumscore+=foodscore)); #collision avec le score
          
-
+	fi
         echo -ne "\033[$xscore;$((yscore-2))H$sumscore"; #affichage du nouveau score
 		
 		(($sumscore==100)) && return 1;   #si on fait 100 points on sort de la boucle principale on va a affichage qui s'occupera d'imprimer "Gagne"    !!!!!!!!!!!!!!!!add!!!!!!!!!!!!!!!!!

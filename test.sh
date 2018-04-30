@@ -227,7 +227,7 @@ sauvegarde(){
     
         nbpartie=$(grep Score ./sauvegarde.txt | wc -l)  #calcul nombre de parties
 
-        (($sumscore>1)) &&  echo "Score de la partie numéro "$nbpartie ":" $sumscore "Bravo" >> sauvegarde.txt || echo "Score de la partie numéro "$nbpartie ":" $sumscore >> sauvegarde.txt  #affichage score dans sauvegarde.txt
+        (($sumscore>10)) &&  echo "Score de la partie numéro "$nbpartie ":" $sumscore "Bravo" >> sauvegarde.txt || echo "Score de la partie numéro "$nbpartie ":" $sumscore >> sauvegarde.txt  #affichage score dans sauvegarde.txt
 
         if (($nbpartie > 0)); then
 

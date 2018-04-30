@@ -186,7 +186,7 @@ nouvelle_partie() {
 	if (($sumscore==9)); then
 	
 	(( x==xrand && y==yrand )) && ((liveflag=1)) && ((sumnode=$(($sumnode/2)))) && ((sumscore+=foodscore));   #voir cette ligne !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	
+	echo -ne "\033[$Lines;$((Cols-30))H\e[33m $sumnode \e[0m" 
 	
 	else
         (( x==xrand && y==yrand )) && ((liveflag=1)) && ((sumnode+=foodscore)) && ((sumscore+=foodscore)); #collision avec le score
